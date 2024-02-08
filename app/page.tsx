@@ -1,5 +1,6 @@
-import Image from 'next/image'
-import Link from 'next/link'
+"use client"
+
+import Link from 'next/Link'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { SignInButton, SignOutButton } from '@clerk/nextjs'
 
@@ -30,13 +31,17 @@ export default function Home() {
       <SignOutButton>
       <Button size={"lg"}>Sign out</Button>
       </SignOutButton>
+      <Link href="/onboarding">
+      <Button size={"lg"}>Get Started</Button>
+      </Link>
       </div>
       </div>
   
     {/* value proposition section */}
     
     <div>
-    
+
+
       <div className='relative isolate'>
       <div aria-hidden="true" className='pointer-events-none absolute inset-x-0 -top-40 -z-10 transorfm-gpu overflow-hidden blur-3xl sm:-top-80'>
         <div style={{
