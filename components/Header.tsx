@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link";
 // import UserButton from "./UserButton";
 // import Logo from "./Logo";
@@ -7,27 +8,46 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/nextjs";
+import useScroll from "@/hooks/use-scroll";
+import { useSelectedLayoutSegment } from "next/navigation";
+import { cn } from "@/lib/utils";
 
-async function Header() {
+function HeaderWeb() {
+  const scrolled = useScroll(5);
+  const selectedLayout = useSelectedLayoutSegment();
+
  
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-gray-900">
-      <nav className="flex flex-col sm:flex-row items-center p-5 pl-2 bg-white dark:bg-gray-900  max-w-7xl mx-auto">
-        {/* <Logo /> */}
+    <div
+    className={cn(
+      `sticky inset-x-0 top-0 z-30 w-full transition-all border-b border-gray-200`,
+      {
+        'border-b border-gray-200 bg-white/75 backdrop-blur-lg': scrolled,
+        'border-b border-gray-200 bg-white': selectedLayout,
+      },
+    )}
+    >
+      <div className="flex h-[47px] items-center justify-between px-4">
+        <div className="flex items-center space-x-4">
+          <Link
+            href="/"
+            className="flex flex-row space-x-0 items-center justify-center md:hidden"
+          >
+            <p className="font-bold text-l text-blue-600 flex">Wage</p><span className="font-bold text-l flex">Wire</span>
+          </Link>
+        </div>
 
-        <div className="flex-1 flex items-center justify-end  space-x-4">
+        <div className="hidden md:block">
         <SignedIn>
-        {/* Mount the UserButton component */}
         <UserButton />
       </SignedIn>
       <SignedOut>
-        {/* Signed out users get sign in button */}
         <SignInButton/>
       </SignedOut>
         </div>
-      </nav>
-    </header>
+      </div>
+    </div>
   );
 }
 
-export default Header;
+export default HeaderWeb;

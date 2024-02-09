@@ -19,7 +19,7 @@ export default function Home() {
       </div>
       <div className='flex flex-col items-center justify-center'>
       <h1 className='text-center max-w-4xl text-5xl font-bold md:text-6xl lg:text-7xl'>
-        Pay all your <span className='text-blue-600'>employees</span> in minutes!
+     <span className='text-blue-600'>Run Payroll</span> in minutes!
       </h1>
       <p className='text-center mx-5 mt-5 max-w-prose text-zinc-700 sm:text-lg'>
         Wage Wire is the easiest way to run payroll.
@@ -28,9 +28,7 @@ export default function Home() {
       <SignInButton>
       <Button size={"lg"}>Sign in</Button>
       </SignInButton>
-      <SignOutButton>
-      <Button size={"lg"}>Sign out</Button>
-      </SignOutButton>
+
       <Link href="/onboarding">
       <Button size={"lg"}>Get Started</Button>
       </Link>
