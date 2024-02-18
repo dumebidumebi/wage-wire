@@ -2,12 +2,12 @@
 
 import Link from 'next/Link'
 import { Button, buttonVariants } from '@/components/ui/button'
-import { SignInButton, SignOutButton } from '@clerk/nextjs'
+import { CreateOrganization, SignUpButton, SignOutButton } from '@clerk/nextjs'
 
 export default function Home() {
   return (
     <>
-      <div className='flex flex-col items-center justify-center mt-40 mb-10'>
+      <div className='flex flex-col items-center justify-center mt-10 mb-10'>
       <h1 className='text-center max-w-4xl text-6xl font-bold md:text-6xl lg:text-8xl'>
         <span className='text-blue-600'>Wage</span>Wire
       </h1>
@@ -25,10 +25,10 @@ export default function Home() {
         Wage Wire is the easiest way to run payroll.
       </p>
       <div className='flex space-x-12 mt-10'>
-      <SignInButton>
+      <SignUpButton redirectUrl="/create-organization">
       <Button size={"lg"}>Sign in</Button>
-      </SignInButton>
-
+      </SignUpButton>
+      
       <Link href="/onboarding">
       <Button size={"lg"}>Get Started</Button>
       </Link>
@@ -38,7 +38,6 @@ export default function Home() {
     {/* value proposition section */}
     
     <div>
-
 
       <div className='relative isolate'>
       <div aria-hidden="true" className='pointer-events-none absolute inset-x-0 -top-40 -z-10 transorfm-gpu overflow-hidden blur-3xl sm:-top-80'>
@@ -50,7 +49,7 @@ export default function Home() {
         <div className='mx-auto max-w-6xl px-6 lg:px-8'>
           <div className='mt-16 flow-root sm:mt-24'>
             <div className='-m-2 rounded-xl bg-gray-900//5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
-              
+              {/* image here */}
             </div>
           </div>
         </div>
@@ -97,7 +96,7 @@ export default function Home() {
       <div className='mx-auto max-w-6xl px-6 lg:px-8'>
           <div className='mt-16 flow-root sm:mt-24'>
             <div className='-m-2 rounded-xl bg-gray-900//5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
-      
+            {/* image here */}
             </div>
           </div>
         </div>

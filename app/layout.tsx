@@ -9,6 +9,7 @@ import SideNav from "@/components/side-nav";
 import MarginWidthWrapper from "@/components/margin-width-wrapper";
 import PageWrapper from "@/components/page-wrapper";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <ClerkProvider>
       {/* <Header/> */}

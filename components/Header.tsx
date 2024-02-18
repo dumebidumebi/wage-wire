@@ -3,6 +3,8 @@ import Link from "next/link";
 // import UserButton from "./UserButton";
 // import Logo from "./Logo";
 import {
+  RedirectToCreateOrganization,
+  RedirectToOrganizationProfile,
   SignedIn,
   SignedOut,
   SignInButton,
@@ -16,7 +18,6 @@ function HeaderWeb() {
   const scrolled = useScroll(5);
   const selectedLayout = useSelectedLayoutSegment();
 
- 
   return (
     <div
     className={cn(
@@ -36,8 +37,7 @@ function HeaderWeb() {
             <p className="font-bold text-l text-blue-600 flex">Wage</p><span className="font-bold text-l flex">Wire</span>
           </Link>
         </div>
-
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
         <SignedIn>
         <UserButton />
       </SignedIn>
