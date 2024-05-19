@@ -12,11 +12,9 @@ async function TokenRefreshedCompany(userId: string) {
 }
 
 
-export default function Page() {
-  const { organization } = useOrganization();
+export default function Page() {;
+  
   const { user } = useUser();
-  const [iframeUrl, setIframeUrl] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     
@@ -26,9 +24,7 @@ export default function Page() {
     try{
       const refresh2  = await TokenRefreshedCompany(user?.id)
       console.log("refresh",refresh2)
-      // setCompanyInfo(refresh2?.newCompanyInfo)
-      // return setIframeUrl(refresh2?.urlObject?.url)
-     
+
       return window.location = refresh2?.urlObject?.url
     } catch(err){
       console.log(err)
@@ -49,7 +45,6 @@ export default function Page() {
     <h1 className='ml-5'>
     Loading...
     </h1>
-      {/* <iframe src={iframeUrl? iframeUrl: ""} height="1000" width='900'></iframe> */}
     </div>
   );
 

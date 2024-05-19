@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
       const response = {newCompanyInfo: newCompanyInfo}
       await setDoc(docRef, {companies: [{gustoData: newCompanyInfo}]}, {merge: true});
       const url = await CompanyOnboarding(newCompanyInfo)
-      if(url){
+      if(url){ 
       console.log('url:', url)
       const finalResponse = {...response, urlObject: url}
       return new Response(JSON.stringify(finalResponse))
