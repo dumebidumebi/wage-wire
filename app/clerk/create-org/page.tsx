@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 // Form to create a new organization. The current user
 // will be given the Creator role.
-import { OrganizationSwitcher, currentUser, useOrganizationList, useUser } from "@clerk/nextjs";
+import { useOrganizationList, useUser } from "@clerk/nextjs";
 import { FormEventHandler, MouseEventHandler, useState } from "react";
 import {
   Card,

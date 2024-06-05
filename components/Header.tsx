@@ -3,12 +3,14 @@ import Link from "next/link";
 import {
   OrganizationSwitcher,
   SignedIn,
+  SignedOut,
   UserButton,
 } from "@clerk/nextjs";
 import useScroll from "@/hooks/use-scroll";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { cn } from "@/lib/utils";
 import HeaderMobile from "./header-mobile";
+import { Button } from "./ui/button";
 
 function HeaderWeb() {
   const scrolled = useScroll(5);
@@ -19,7 +21,7 @@ function HeaderWeb() {
     className={cn(
       `sticky inset-x-0 top-0 z-30 max-w-full transition-all border-b border-gray-200 `,
       {
-        'border-b border-gray-200 bg-white/75 backdrop-blur-lg': scrolled,
+        'border-b border-gray-200 bg-white ': scrolled,
         'border-b border-gray-200 bg-white': selectedLayout,
       },
     )}
@@ -34,17 +36,22 @@ function HeaderWeb() {
           </Link>
           
         </div>
-        <div className="mx-40"></div>
+        {/* <div className="mx-40"></div> */}
         <div>
         <div className=" flex space-x-5 absolute right-10 mx-5 top-[8px] z-30">
         <SignedIn>
         <UserButton />
-
         <OrganizationSwitcher createOrganizationUrl="/clerk/create-org"/>
+        
+        </SignedIn>
+        <SignedOut>
+        <Link href={"/clerk/sign-up"}>
+          <Button className="rounded-sm" size={"sm"}>Sign Up</Button>
+        </Link>
+      </SignedOut>
+        </div>
         <div className="flex items-center space-x-4">
         <HeaderMobile/>
-        </div>
-        </SignedIn>
         </div>
         </div>
       </div>
